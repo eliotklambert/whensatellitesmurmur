@@ -1,244 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Stylesheets and custom scripts -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
 
-  <!-- p5.js & ml5.js libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.js"></script>
-  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <style>
+      body {
+        background-color: #000;
+        color: #000;
+        font-family: monospace;
+        font-style: normal;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
 
-  <!-- Stylesheets and custom scripts -->
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+      .landing-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: 1;
+      }
 
-  <style>
-    body {
-      background-color: #000;
-      color: #000;
-      font-family: monospace;
-      font-style: normal;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
+      .circle-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1000px;
+        height: 400px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 0.1px solid #ffffff;
+        opacity: 0.2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        z-index: 1;
+      }
 
-    .landing-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 1;
-    }
+      .circle-container:nth-child(2) {
+        top: 25%;
+      }
+      .circle-container:nth-child(3) {
+        top: 75%;
+      }
+      .circle-container:nth-child(4) {
+        left: 25%;
+      }
+      .circle-container:nth-child(5) {
+        left: 75%;
+      }
+      .circle-container:nth-child(6) {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
-    .circle-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1000px;
-      height: 400px;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      border: 0.1px solid #ffffff;
-      opacity: 0.2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      z-index: 1;
-    }
+      .central-planet {
+        width: 200px;
+        height: 100px;
+        background-color: #051a85;
+        opacity: 0.2;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 100px #39421c;
+      }
 
-    .circle-container:nth-child(2) {
-      top: 25%;
-    }
-    .circle-container:nth-child(3) {
-      top: 75%;
-    }
-    .circle-container:nth-child(4) {
-      left: 25%;
-    }
-    .circle-container:nth-child(5) {
-      left: 75%;
-    }
-    .circle-container:nth-child(6) {
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+      .curved-links text {
+        animation: spinText 60s linear infinite;
+        transform-origin: 50% 50%;
+        font-size: 20px;
+        font-family: "Roboto", sans-serif;
+        font-style: oblique;
+      }
 
-    .central-planet {
-      width: 200px;
-      height: 100px;
-      background-color: #051a85;
-      opacity: 0.2;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 100px #39421c;
-    }
+      .circle-link {
+        text-decoration: none;
+        color: #001eff;
+        font-size: 20px;
+        font-family: monospace;
+        font-style: oblique;
+        -webkit-text-stroke: 0.05px #000;
+        white-space: nowrap;
+        transform-origin: 0% 0%;
+        transition: color 1s;
+      }
 
-    
+      .circle-link:hover {
+        color: #ff4d00;
+      }
 
-    .curved-links text {
-      animation: spinText 60s linear infinite;
-      transform-origin: 50% 50%;
-      font-size: 20px;
-      font-family: 'Roboto', sans-serif;
-      font-style: oblique;
-    }
-
-    .circle-link {
-      text-decoration: none;
-      color: #001eff;
-      font-size: 20px;
-      font-family: monospace;
-      font-style: oblique;
-      -webkit-text-stroke: 0.05px #000;
-      white-space: nowrap;
-      transform-origin: 0% 0%;
-      transition: color 1s;
-    }
-
-    .circle-link:hover {
-      color: #ff4d00;
-    }
-
-    @keyframes spinText {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes slowRotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="site-header">
-    <a href="index.html">Eliot Lambert / When Satellites Murmur</a>
-  </div>
-  
-  <div class="home">
-    <!-- Background audio -->
-    <audio autoplay loop>
-      <source src="cluster.mp3" type="audio/mp3" />
-      Your browser does not support the audio element.
-    </audio>
-
-    <!-- Fullscreen background video -->
-    <video class="landing-video" autoplay muted loop playsinline>
-      <source src="noise.mp4" type="video/mp4" />
-    </video>
-
-    <!-- Circle containers with central planet -->
-    <div class="circle-container">
-      <div class="central-planet"></div>
-    </div>
-
-    <div class="circle-container">
-      <div class="central-planet"></div>
-    </div>
-
-    <div class="circle-container">
-      <div class="central-planet"></div>
-    </div>
-
-    <div class="circle-container">
-      <div class="central-planet"></div>
-    </div>
-
-    <div class="circle-container">
-      <div class="central-planet"></div>
-    </div>
-
-    <div class="circle-container">
-      <div class="central-planet"></div>
-    </div>
-
-    <!-- SVG Curved Text Links -->
-    <svg width="800" height="800" viewBox="0 0 800 800" class="curved-links">
-      <defs>
-        <path id="circlePath1" d="M 400,400 m -300,0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0" />
-        <path id="circlePath2" d="M 400,400 m -350,0 a 350,350 0 1,1 700,0 a 350,350 0 1,1 -700,0" />
-        <path id="circlePath3" d="M 400,400 m -400,0 a 400,400 0 1,1 800,0 a 400,400 0 1,1 -800,0" />
-        <path id="circlePath4" d="M 400,400 m -450,0 a 450,450 0 1,1 900,0 a 450,450 0 1,1 -900,0" />
-        <path id="circlePath5" d="M 400,400 m -500,0 a 500,500 0 1,1 1000,0 a 500,500 0 1,1 -1000,0" />
-        <path id="circlePath6" d="M 400,400 m -550,0 a 550,550 0 1,1 1100,0 a 550,550 0 1,1 -1100,0" />
-        <path id="circlePath7" d="M 400,400 m -600,0 a 600,600 0 1,1 1200,0 a 600,600 0 1,1 -1200,0" />
-        <path id="circlePath8" d="M 400,400 m -650,0 a 650,650 0 1,1 1300,0 a 650,650 0 1,1 -1300,0" />
-        <path id="circlePath9" d="M 400,400 m -700,0 a 700,700 0 1,1 1400,0 a 700,700 0 1,1 -1400,0" />
-        <path id="circlePath10" d="M 400,400 m -750,0 a 750,750 0 1,1 1500,0 a 750,750 0 1,1 -1500,0" />
-        <path id="circlePath11" d="M 400,400 m -800,0 a 800,800 0 1,1 1600,0 a 800,800 0 1,1 -1600,0" />
-        <path id="circlePath12" d="M 400,400 m -850,0 a 850,850 0 1,1 1700,0 a 850,850 0 1,1 -1700,0" />
-      
-      </defs>
-
-      <g fill="#001eff" font-size="20" font-family="'Jost', sans-serif" font-style="oblique">
-        <text><textPath href="#circlePath1" startOffset="10%">Text 1</textPath></text>
-        <text><textPath href="#circlePath2" startOffset="12%">Text 2</textPath></text>
-        <text><textPath href="#circlePath3" startOffset="14%">Text 3</textPath></text>
-        <text><textPath href="#circlePath4" startOffset="16%">Text 4</textPath></text>
-        <text><textPath href="#circlePath5" startOffset="18%">Text 5</textPath></text>
-        <text><textPath href="#circlePath6" startOffset="20%">Text 6</textPath></text>
-        <text><textPath href="#circlePath7" startOffset="22%">Text 7</textPath></text>
-        <text><textPath href="#circlePath8" startOffset="24%">Text 8</textPath></text>
-        <text><textPath href="#circlePath9" startOffset="26%">Text 9</textPath></text>
-        <text><textPath href="#circlePath10" startOffset="28%">Text 10</textPath></text>
-        <text><textPath href="#circlePath11" startOffset="30%">Text 11</textPath></text>
-        <text><textPath href="#circlePath12" startOffset="32%">Text 12</textPath></text>
-        <text><textPath href="#circlePath13" startOffset="34%">Text 13</textPath></text>
-      </g>
-
-    </svg>
-  </div>
-
-  <!-- Dynamic Text Injection Script -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const links = [
-        { title: 'Introduction', url: 'p01.html' },
-        { title: 'From Sputnik to SpaceX', url: 'p02.html' },
-        { title: 'Starlink Avian Services', url: 'p03.html' },
-        { title: 'Starlings', url: 'p04.html' },
-        { title: 'Cosmic Deep Listening', url: 'p05.html' },
-        { title: 'The Cult of the Vanguard', url: 'p06.html' },
-        { title: 'Software Defined Radio/Open Weather', url: 'p07.html' },
-        { title: 'Process: Satellite Signals', url: 'p08.html' },
-        { title: 'Process: Theremin', url: 'p09.html' },
-        { title: 'Process: Satellite Ephemera', url: 'p10.html' },
-        { title: 'Process: Building the Installation', url: 'p11.html' },
-        { title: 'Final Installation', url: 'p12.html' },
-        { title: 'Conclusion', url: 'p13.html' },
-
-      ];
-
-      const paths = document.querySelectorAll('textPath');
-      paths.forEach((path, index) => {
-        const { title, url } = links[index];
-        let repeatedText = '';
-
-        for (let i = 0; i < 7; i++) {
-          repeatedText += `<a href="${url}" class="circle-link"><tspan fill="${i === 0 ? '#ffffff' : '#001eff'}">${title}</tspan></a> • `;
+      @keyframes spinText {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        path.innerHTML = repeatedText.trim();
+      @keyframes slowRotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site-header">
+      <a href="index.html">Eliot Lambert / When Satellites Murmur</a>
+    </div>
+
+    <div class="home">
+      <!-- Background audio -->
+      <audio autoplay loop>
+        <source src="cluster.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <!-- Fullscreen background video -->
+      <video class="landing-video" autoplay muted loop playsinline>
+        <source src="noise.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Circle containers with central planet -->
+
+      <!-- SVG Curved Text Links -->
+      <svg width="800" height="800" viewBox="0 0 800 800" class="curved-links">
+        <defs>
+          <path
+            id="circlePath1"
+            d="M 400,400 m -300,0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0"
+          />
+          <path
+            id="circlePath2"
+            d="M 400,400 m -350,0 a 350,350 0 1,1 700,0 a 350,350 0 1,1 -700,0"
+          />
+          <path
+            id="circlePath3"
+            d="M 400,400 m -400,0 a 400,400 0 1,1 800,0 a 400,400 0 1,1 -800,0"
+          />
+          <path
+            id="circlePath4"
+            d="M 400,400 m -450,0 a 450,450 0 1,1 900,0 a 450,450 0 1,1 -900,0"
+          />
+          <path
+            id="circlePath5"
+            d="M 400,400 m -500,0 a 500,500 0 1,1 1000,0 a 500,500 0 1,1 -1000,0"
+          />
+          <path
+            id="circlePath6"
+            d="M 400,400 m -550,0 a 550,550 0 1,1 1100,0 a 550,550 0 1,1 -1100,0"
+          />
+          <path
+            id="circlePath7"
+            d="M 400,400 m -600,0 a 600,600 0 1,1 1200,0 a 600,600 0 1,1 -1200,0"
+          />
+          <path
+            id="circlePath8"
+            d="M 400,400 m -650,0 a 650,650 0 1,1 1300,0 a 650,650 0 1,1 -1300,0"
+          />
+          <path
+            id="circlePath9"
+            d="M 400,400 m -700,0 a 700,700 0 1,1 1400,0 a 700,700 0 1,1 -1400,0"
+          />
+          <path
+            id="circlePath10"
+            d="M 400,400 m -750,0 a 750,750 0 1,1 1500,0 a 750,750 0 1,1 -1500,0"
+          />
+          <path
+            id="circlePath11"
+            d="M 400,400 m -800,0 a 800,800 0 1,1 1600,0 a 800,800 0 1,1 -1600,0"
+          />
+          <path
+            id="circlePath12"
+            d="M 400,400 m -850,0 a 850,850 0 1,1 1700,0 a 850,850 0 1,1 -1700,0"
+          />
+        </defs>
+
+        <g
+          fill="#001eff"
+          font-size="20"
+          font-family="'Jost', sans-serif"
+          font-style="oblique"
+        >
+          <text>
+            <textPath href="#circlePath1" startOffset="10%">Text 1</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath2" startOffset="12%">Text 2</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath3" startOffset="14%">Text 3</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath4" startOffset="16%">Text 4</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath5" startOffset="18%">Text 5</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath6" startOffset="20%">Text 6</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath7" startOffset="22%">Text 7</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath8" startOffset="24%">Text 8</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath9" startOffset="26%">Text 9</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath10" startOffset="28%">Text 10</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath11" startOffset="30%">Text 11</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath12" startOffset="32%">Text 12</textPath>
+          </text>
+          <text>
+            <textPath href="#circlePath13" startOffset="34%">Text 13</textPath>
+          </text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Dynamic Text Injection Script -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const links = [
+          { title: "Introduction", url: "p01.html" },
+          { title: "From Sputnik to SpaceX", url: "p02.html" },
+          { title: "Starlink Avian Services", url: "p03.html" },
+          { title: "Starlings", url: "p04.html" },
+          { title: "Cosmic Deep Listening", url: "p05.html" },
+          { title: "The Cult of the Vanguard", url: "p06.html" },
+          { title: "Software Defined Radio/Open Weather", url: "p07.html" },
+          { title: "Process: Satellite Signals", url: "p08.html" },
+          { title: "Process: Theremin", url: "p09.html" },
+          { title: "Process: Satellite Ephemera", url: "p10.html" },
+          { title: "Process: Building the Installation", url: "p11.html" },
+          { title: "Final Installation", url: "p12.html" },
+          { title: "Conclusion", url: "p13.html" },
+        ];
+
+        const paths = document.querySelectorAll("textPath");
+        paths.forEach((path, index) => {
+          const { title, url } = links[index];
+          let repeatedText = "";
+
+          for (let i = 0; i < 7; i++) {
+            repeatedText += `<a href="${url}" class="circle-link"><tspan fill="${
+              i === 0 ? "#ffffff" : "#001eff"
+            }">${title}</tspan></a> • `;
+          }
+
+          path.innerHTML = repeatedText.trim();
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
-
-
