@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Eliot| When Satellites Murmur</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="site-header">
+      <a href="index.html">Eliot Lambert / When Satellites Murmur</a>
+    </div>
+    <!-- navigation menu -->
+    <nav></nav>
+
+    <!-- main content -->
+    <main>
+      <!-- 1. give your project a title -->
+      <h1>Process: Part Four - Experimentation</h1>
+
+      <p>
+        These stills were taken during my testing of the theremin/satellite
+        dish/antenna setup. The first four were taken in my bedroom and roof,
+        and the last two were taken in a belltower of a church on a floor that
+        was lined with dead pigeons. This process was very experimental and I
+        realized that I could play a theremin with an antenna! I also realized
+        that playing the theremin as an instrument would be a lot more difficult
+        than using it as a midi controller, because I was so new to learning it.
+      </p>
+      <br />
+      <p>
+        There was something meditative about this experimental phase, yet also
+        frustrating because I had more technical issues and was facing a lot of
+        wind, as well as meeting a lot of static when recording (although I got
+        used to it). When I had less setup, or when my equipment wasn’t working
+        (for example at the church where I only had my antenna unconnected to
+        SDR), it was interesting to think more speculatively about what a signal
+        could sound like. The act of picking up the NOAA signal is definitely
+        more exciting than listening to it without context, so to imagine what
+        invisible channels of sound the antennas could pick up, and how the
+        signal could be modulated, were both integral parts of my sonic
+        modulation.
+      </p>
+      <br />
+
+      <div class="fullwidth">
+        <img
+          src="theremin_roof_2.jpg"
+          alt="Satellite Image"
+          class="responsive-image"
+        />
+      </div>
+      <div class="fullwidth">
+        <img
+          src="birdintheremin.jpg"
+          alt="Satellite Image"
+          class="responsive-image"
+        />
+      </div>
+
+      <div class="fullwidth">
+        <img
+          src="theremin_roof_still1.jpg"
+          alt="Satellite Image"
+          class="responsive-image"
+        />
+      </div>
+
+      <div class="fullwidth">
+        <img
+          src="closeupchurch.jpg"
+          alt="Satellite Image"
+          class="responsive-image"
+        />
+      </div>
+
+      <div class="fullwidth">
+        <figure>
+          <img src="eliotRoof.jpg" alt="theremin1" class="responsive-image" />
+          <figcaption>
+            Images of Experimentation. Source: Eliot Lambert and Miranda
+            Zhen-Yao, 2025
+          </figcaption>
+        </figure>
+      </div>
+      <br />
+
+      <h2>Audio Reactive Visual Experiment in TouchDesigner</h2>
+
+      <figure>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/yFXhSVk9VsU?si=UAsYRxIVf-vs-XOl"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        <figcaption>
+          Audio reactive noise displacement demo. Source: Video by Eliot
+          Lambert, 2025.
+        </figcaption>
+      </figure>
+      <br />
+      <p>
+        This audio-reactive TouchDesigner experiment channels audio from
+        CubicSDR into TouchDesigner, where visual noise displacement causes the
+        video of a starling murmuration to dissolve into static as the amplitude
+        increases. I wanted to explore the idea that the murmuration doesn’t
+        just sound like static, but can also be visually transformed into it—as
+        thousands of birds become specks of noise on the screen. The murmuration
+        is electronically processed.
+      </p>
+
+      <br />
+
+      <p>
+        The audio in this experiment comes from a website called Radio
+        Reference, which lists the
+
+        <a
+          href="https://www.radioreference.com/db/browse/ctid/1855"
+          target="_blank"
+        >
+          frequencies
+        </a>
+
+        of the NYPD communication networks. Inspired by the work of Robin
+        ‘Scanner’ Rimbaud, who uses shortwave radio and police scanners to
+
+        <a href="https://www.youtube.com/watch?v=nXm7b5HIkGQ" target="_blank">
+          record
+        </a>
+
+        snippets of private conversations, I was drawn to eavesdropping on
+        police channels, and was surprised that these channels were openly
+        available to anyone with a shortwave radio.
+      </p>
+
+      <p>
+        This experiment was very evocative, and I wanted to incorporate it into
+        my sonic network that decided to build on Max MSP instead of
+        TouchDesigner, because the former allows for a much wider variety of
+        audio parameters than the latter.
+      </p>
+    </main>
+  </body>
+</html>

@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Stylesheets and custom scripts -->
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+
+    <div class="site-header">
+      <a href="index.html">Eliot Lambert / When Satellites Murmur</a>
+    </div>
 
     <style>
       body {
@@ -19,7 +22,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
+        overflow: hidden;
       }
 
       .landing-video {
@@ -30,45 +33,6 @@
         height: 100vh;
         object-fit: cover;
         z-index: 1;
-      }
-
-      .circle-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 1000px;
-        height: 400px;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        border: 0.1px solid #ffffff;
-        opacity: 0.2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      .circle-container:nth-child(2) {
-        top: 25%;
-      }
-
-      .circle-container:nth-child(3) {
-        top: 75%;
-      }
-
-      .circle-container:nth-child(4) {
-        left: 25%;
-      }
-
-      .circle-container:nth-child(5) {
-        left: 75%;
-      }
-
-      .circle-container:nth-child(6) {
-        top: 10%;
-        left: 50%;
-        transform: translateX(-50%);
       }
 
       .central-planet {
@@ -82,26 +46,15 @@
         left: 50%;
         transform: translate(-50%, -50%);
         box-shadow: 0 0 100px #39421c;
+        z-index: 2;
       }
 
-      .curved-links text {
-        animation: spinText 60s linear infinite;
-        transform-origin: 50% 50%;
-        font-size: 20px;
-        font-family: "Roboto", sans-serif;
-        font-style: oblique;
-      }
-
-      .circle-link {
-        text-decoration: none;
-        color: #001eff;
-        font-size: 20px;
-        font-family: monospace;
-        font-style: oblique;
-        -webkit-text-stroke: 0.05px #000;
-        white-space: nowrap;
-        transform-origin: 0% 0%;
-        transition: color 1s;
+      .curved-links {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
       }
 
       .circle-link:hover {
@@ -112,176 +65,179 @@
         from {
           transform: rotate(0deg);
         }
-
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes slowRotate {
-        from {
-          transform: rotate(0deg);
-        }
-
         to {
           transform: rotate(360deg);
         }
       }
     </style>
   </head>
-
   <body>
-    <div class="site-header">
-      <a href="index.html">Eliot Lambert / When Satellites Murmur</a>
-    </div>
+    <video class="landing-video" autoplay muted loop playsinline>
+      <source src="noise.mp4" type="video/mp4" />
+    </video>
 
-    <div class="home">
-      <!-- Background audio -->
-      <audio autoplay loop>
-        <source src="cluster.mp3" type="audio/mp3" />
-        Your browser does not support the audio element.
-      </audio>
+    <div class="central-planet"></div>
 
-      <!-- Fullscreen background video -->
-      <video class="landing-video" autoplay muted loop playsinline>
-        <source src="noise.mp4" type="video/mp4" />
-      </video>
+    <svg
+      width="800"
+      height="800"
+      viewBox="200 300 -50 300"
+      class="curved-links"
+    >
+      <defs>
+        <path
+          id="circlePath1"
+          d="M400,400 m-300,0 a300,300 0 1,1 600,0 a300,300 0 1,1 -600,0"
+        />
+        <path
+          id="circlePath2"
+          d="M400,400 m-280,0 a280,280 0 1,1 560,0 a280,280 0 1,1 -560,0"
+        />
+        <path
+          id="circlePath3"
+          d="M400,400 m-260,0 a260,260 0 1,1 520,0 a260,260 0 1,1 -520,0"
+        />
+        <path
+          id="circlePath4"
+          d="M400,400 m-240,0 a240,240 0 1,1 480,0 a240,240 0 1,1 -480,0"
+        />
+        <path
+          id="circlePath5"
+          d="M400,400 m-220,0 a220,220 0 1,1 440,0 a220,220 0 1,1 -440,0"
+        />
+        <path
+          id="circlePath6"
+          d="M400,400 m-200,0 a200,200 0 1,1 400,0 a200,200 0 1,1 -400,0"
+        />
+        <path
+          id="circlePath7"
+          d="M400,400 m-180,0 a180,180 0 1,1 360,0 a180,180 0 1,1 -360,0"
+        />
+        <path
+          id="circlePath8"
+          d="M400,400 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0"
+        />
+        <path
+          id="circlePath9"
+          d="M400,400 m-140,0 a140,140 0 1,1 280,0 a140,140 0 1,1 -280,0"
+        />
+        <path
+          id="circlePath10"
+          d="M400,400 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"
+        />
+        <path
+          id="circlePath11"
+          d="M400,400 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0"
+        />
+        <path
+          id="circlePath12"
+          d="M400,400 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"
+        />
+        <path
+          id="circlePath13"
+          d="M400,400 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"
+        />
+      </defs>
 
-      <!-- Circle containers with central planet -->
+      <g
+        fill="#001eff"
+        font-size="20"
+        font-family="'Jost', sans-serif"
+        font-style="oblique"
+      >
+        <!-- Text placeholders; content added dynamically -->
+        <g font-size="20" font-family="'Jost', sans-serif" font-style="oblique">
+          <text class="pulse-text" fill="#ffffff">
+            <textPath href="#circlePath1" startOffset="10%"></textPath>
+          </text>
+          <text class="pulse-text" fill="#0000FF">
+            <textPath href="#circlePath2" startOffset="15%"></textPath>
+          </text>
+          <text class="pulse-text" fill="#ffffff">
+            <textPath href="#circlePath3" startOffset="20%"></textPath>
+          </text>
+          <text class="pulse-text" fill="#0000FF">
+            <textPath href="#circlePath4" startOffset="25%"></textPath>
+          </text>
+          <text class="pulse-text" fill="#ffffff">
+            <textPath href="#circlePath5" startOffset="30%"></textPath>
+          </text>
+          <text class="pulse-text" fill="#0000FF">
+            <textPath href="#circlePath6" startOffset="35%"></textPath>
+          </text>
 
-      <!-- SVG Curved Text Links -->
-      <svg width="800" height="800" viewBox="0 0 800 800" class="curved-links">
-        <defs>
-          <path
-            id="circlePath1"
-            d="M 400,400 m -300,0 a 300,300 0 1,1 600,0 a 300,300 0 1,1 -600,0"
-          />
-          <path
-            id="circlePath2"
-            d="M 400,400 m -350,0 a 350,350 0 1,1 700,0 a 350,350 0 1,1 -700,0"
-          />
-          <path
-            id="circlePath3"
-            d="M 400,400 m -400,0 a 400,400 0 1,1 800,0 a 400,400 0 1,1 -800,0"
-          />
-          <path
-            id="circlePath4"
-            d="M 400,400 m -450,0 a 450,450 0 1,1 900,0 a 450,450 0 1,1 -900,0"
-          />
-          <path
-            id="circlePath5"
-            d="M 400,400 m -500,0 a 500,500 0 1,1 1000,0 a 500,500 0 1,1 -1000,0"
-          />
-          <path
-            id="circlePath6"
-            d="M 400,400 m -550,0 a 550,550 0 1,1 1100,0 a 550,550 0 1,1 -1100,0"
-          />
-          <path
-            id="circlePath7"
-            d="M 400,400 m -600,0 a 600,600 0 1,1 1200,0 a 600,600 0 1,1 -1200,0"
-          />
-          <path
-            id="circlePath8"
-            d="M 400,400 m -650,0 a 650,650 0 1,1 1300,0 a 650,650 0 1,1 -1300,0"
-          />
-          <path
-            id="circlePath9"
-            d="M 400,400 m -700,0 a 700,700 0 1,1 1400,0 a 700,700 0 1,1 -1400,0"
-          />
-          <path
-            id="circlePath10"
-            d="M 400,400 m -750,0 a 750,750 0 1,1 1500,0 a 750,750 0 1,1 -1500,0"
-          />
-          <path
-            id="circlePath11"
-            d="M 400,400 m -800,0 a 800,800 0 1,1 1600,0 a 800,800 0 1,1 -1600,0"
-          />
-          <path
-            id="circlePath12"
-            d="M 400,400 m -850,0 a 850,850 0 1,1 1700,0 a 850,850 0 1,1 -1700,0"
-          />
-        </defs>
-
-        <g
-          fill="#001eff"
-          font-size="20"
-          font-family="'Jost', sans-serif"
-          font-style="oblique"
-        >
-          <text>
-            <textPath href="#circlePath1" startOffset="10%">Text 1</textPath>
+          <text class="pulse-text" fill="#ffffff">
+            <textPath href="#circlePath7" startOffset="40%"></textPath>
           </text>
-          <text>
-            <textPath href="#circlePath2" startOffset="12%">Text 2</textPath>
+          <text class="pulse-text" fill="#0000FF">
+            <textPath href="#circlePath8" startOffset="45%"></textPath>
           </text>
-          <text>
-            <textPath href="#circlePath3" startOffset="14%">Text 3</textPath>
+          <text class="pulse-text" fill="#ffffff">
+            <textPath href="#circlePath9" startOffset="50%"></textPath>
           </text>
-          <text>
-            <textPath href="#circlePath4" startOffset="16%">Text 4</textPath>
+          <text class="pulse-text" fill="#0000FF">
+            <textPath href="#circlePath10" startOffset="35%"></textPath>
           </text>
-          <text>
-            <textPath href="#circlePath5" startOffset="18%">Text 5</textPath>
+          <text class="pulse-text" fill="#ffffff">
+            <textPath href="#circlePath11" startOffset="20%"></textPath>
           </text>
-          <text>
-            <textPath href="#circlePath6" startOffset="20%">Text 6</textPath>
+          <text class="pulse-text" fill="#0000FF">
+            <textPath href="#circlePath12" startOffset="65%"></textPath>
           </text>
-          <text>
-            <textPath href="#circlePath7" startOffset="22%">Text 7</textPath>
-          </text>
-          <text>
-            <textPath href="#circlePath8" startOffset="24%">Text 8</textPath>
-          </text>
-          <text>
-            <textPath href="#circlePath9" startOffset="26%">Text 9</textPath>
-          </text>
-          <text>
-            <textPath href="#circlePath10" startOffset="28%">Text 10</textPath>
-          </text>
-          <text>
-            <textPath href="#circlePath11" startOffset="30%">Text 11</textPath>
-          </text>
-          <text>
-            <textPath href="#circlePath12" startOffset="32%">Text 12</textPath>
-          </text>
-          <text>
-            <textPath href="#circlePath13" startOffset="34%">Text 13</textPath>
+          <text class="pulse-text" fill="#ffffff">
+            <textPath href="#circlePath13" startOffset="60%"></textPath>
           </text>
         </g>
-      </svg>
-    </div>
+      </g>
+    </svg>
 
-    <!-- Dynamic Text Injection Script -->
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         const links = [
-          { title: "Introduction", url: "p01.html" },
-          { title: "From Sputnik to SpaceX", url: "p02.html" },
-          { title: "Starlink Avian Services", url: "p03.html" },
-          { title: "Starlings", url: "p04.html" },
-          { title: "Cosmic Deep Listening", url: "p05.html" },
-          { title: "The Cult of the Vanguard", url: "p06.html" },
-          { title: "Software Defined Radio/Open Weather", url: "p07.html" },
-          { title: "Process: Satellite Signals", url: "p08.html" },
-          { title: "Process: Theremin", url: "p09.html" },
-          { title: "Process: Satellite Ephemera", url: "p10.html" },
-          { title: "Process: Building the Installation", url: "p11.html" },
-          { title: "Final Installation", url: "p12.html" },
-          { title: "Conclusion", url: "p13.html" },
+          { title: "Introduction", url: "introduction.html" },
+          { title: "Swarming Satellites", url: "swarmingsatellites.html" },
+          {
+            title: "Deep Listening to the Nonhuman",
+            url: "deeplisteningtothenonhuman.html",
+          },
+          {
+            title: "Starlink Avian Services",
+            url: "starlinkavianservices.html",
+          },
+          {
+            title: "Software Defined Radio and Open Weather",
+            url: "sdrandopenweather.html",
+          },
+          {
+            title: "Process: Part One - Satellite Signals",
+            url: "satellitesignals.html",
+          },
+          { title: "Process: Part Two - Theremin", url: "theremin.html" },
+          {
+            title: "Process: Part Three - Satellite Ephemera",
+            url: "satellitephemera.html",
+          },
+          {
+            title: "Process: Part Four - Experimentation",
+            url: "experimentation.html",
+          },
+          {
+            title: "Process: Part Five: Building the Sonic Network",
+            url: "buildingsonicnetwork.html",
+          },
+          {
+            title: "Process: Part Six - Final Installation",
+            url: "finalinstallation.html",
+          },
+          { title: "Conclusion", url: "conclusion.html" },
+          { title: "References", url: "references.html" },
         ];
 
         const paths = document.querySelectorAll("textPath");
         paths.forEach((path, index) => {
           const { title, url } = links[index];
-          let repeatedText = "";
-
-          for (let i = 0; i < 7; i++) {
-            repeatedText += `<a href="${url}" class="circle-link"><tspan fill="${
-              i === 0 ? "#ffffff" : "#001eff"
-            }">${title}</tspan></a> • `;
-          }
-
-          path.innerHTML = repeatedText.trim();
+          const color = Math.random() > 0.5 ? "#ffffff" : "#0000"; // randomize white or blue
+          path.innerHTML = `<a href="${url}" class="circle-link" style="color: ${color}">${title}</a>`;
         });
       });
     </script>

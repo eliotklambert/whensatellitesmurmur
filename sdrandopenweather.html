@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Eliot| When Satellites Murmur</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="site-header">
+      <a href="index.html">Eliot Lambert / When Satellites Murmur</a>
+    </div>
+    <!-- navigation menu -->
+    <nav></nav>
+
+    <!-- main content -->
+    <main>
+      <!-- 1. give your project a title -->
+      <h1>Software Defined Radio and Open Weather</h1>
+
+      <p>
+        Much like satellites, radio is deeply embedded in the foundation of
+        military communications, enabling operators to respond to a wide range
+        of shifting protocols in real time. A particularly intriguing example of
+        this is the history of number stations, which first emerged during World
+        War I as a method of encrypted signaling via shortwave transmission.
+        These cryptic broadcasts, often delivered by a chilling, monotone voice
+        - frequently female - reciting seemingly random numbers, were then
+        decrypted using techniques like the One-Time Pad, facilitating
+        international communication between intelligence agencies.
+      </p>
+      <br />
+
+      <figure>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/EusPLYQSmbY?si=MRdVtpWEXbdmF3yN"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        >
+        </iframe>
+        <figcaption>
+          Numbers Station on Max MSP. Source: demo by Eliot Lambert, 2025.
+        </figcaption>
+      </figure>
+
+      <br />
+      <p>
+        While traditional radios tune into specific frequency bands, the birth
+        of software-defined radio (SDR) allowed for more flexible modulation
+        between frequencies and communication protocols, paving the way for
+        richer experimentation. To its credit, SDR has made the often arcane
+        world of radio more accessible and open-source to people who are
+        interested in tuning in - which has encouraged a wave of radio amateurs
+        to buy an antenna dongle kit, download software such as CubicSDR, and
+        receive whichever frequency their heart so desires (in my case, between
+        500 kHz and 1.75 GHz as these are the specs of the RTL2832U kit).
+      </p>
+      <br />
+      <p>
+        My entry into SDR led me to the fascinating work of
+
+        <a href="https://open-weather.community/" target="_blank">
+          Open Weather
+        </a>
+        , an intersectional feminist collective, informed by feminist theory and
+        speculative storytelling, that uses SDR to collect weather forecasting
+        data. On their website, they describe their ethos:
+      </p>
+      <section class="poem-section">
+        <p class="poem-heading">
+          “In the tradition of intersectional feminism, open-weather
+          investigates the politics of location and interlocking oppressions
+          that shape our capacities to observe, negotiate, and respond to the
+          climate crisis. In doing so, open-weather challenges dominant
+          representations of earth and environment while complicating ideas of
+          the weather beyond the meteorological.”
+        </p>
+
+        <p>
+          Their work feels particularly necessary during the Trump
+          administration’s censorship and
+          <a
+            href="https://nsarchive.gwu.edu/briefing-book/climate-change-transparency-project-foia/2025-02-06/disappearing-data-trump"
+            target="_blank"
+          >
+            erasure
+          </a>
+
+          of climate data. Federal agencies such as the National Oceanic and
+          Atmospheric Administration (NOAA), which monitors the satellites that
+          Open Weather track to produce their weather forecasting, have
+          restricted or removed entirely access to climate-related datasets for
+          scientists and the public. The future of global weather monitoring has
+          been thrown into disarray - the administration has already
+          substantially
+          <a
+            href="https://www.scientificamerican.com/article/amid-trump-cuts-noaa-halts-upkeep-of-critical-weather-satellites/"
+            target="_blank"
+          >
+            cut
+          </a>
+          the funding and workforce of NOAA in favor of privatizing space
+          exploration and scientific research, which will inevitably lead to
+          poor and inaccurate science.
+        </p>
+
+        <p>
+          By building an archive of DIY weather data collection, similarly to
+          Gregory Green’s ‘Gregnik’, more value is placed on community
+          knowledge-building over state control. I decided to adopt Open
+          Weather’s methodology to build my own DIY satellite ground station. My
+          project really took a turn when I was introduced to their methodology,
+          as picking up the satellite signals opened up a portal into the cosmic
+          soundscape.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

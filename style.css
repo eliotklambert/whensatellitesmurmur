@@ -1,11 +1,45 @@
 /* ------------------ Core Styles ------------------ */
-html, body {
+html,
+body {
   height: 100%;
   background-color: #ffffff;
   color: #000000;
   font-family: monospace;
   font-style: normal;
   display: flex;
+}
+
+figure {
+  text-align: center;
+  margin: 0;
+}
+
+figcaption {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #555;
+  margin-top: 10px;
+}
+
+.poem-heading {
+  font-size: 1rem; /* or any size you'd like */
+  font-style: italic;
+  font-weight: bold;
+  line-height: 2; /* Double spacing */
+  text-align: center; /* Optional, based on your layout */
+  margin-bottom: 1em;
+}
+
+.poem-credit {
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #2b00ff;
+}
+
+.full-indent {
+  margin-left: 2em;
 }
 
 /* ------------------ Landing Page Styles ------------------ */
@@ -18,8 +52,12 @@ html, body {
   position: relative;
 }
 
+.landing-video {
+  opacity: 0.9; /* Value from 0 (fully transparent) to 1 (fully opaque) */
+}
+
 .title {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 h1 {
@@ -34,12 +72,14 @@ h1 a {
   color: inherit;
 }
 
-h2, nav a {
-  font-size: 1.2rem;
-  font-weight: 400;
+h2,
+nav a {
+  font-size: 1rem;
+  font-weight: 200;
   color: rgb(17, 0, 255);
   -webkit-text-stroke: 1px #2b00ff;
-  font-style: monospace;
+  font-style: italic;
+  line-height: 2;
 }
 
 p {
@@ -71,40 +111,14 @@ main {
   top: 0;
 }
 
-/* ------------------ Circular Elements ------------------ */
-.circle-container {
-  position: relative;
-  width: 800px;
-  height: 800px;
-  border-radius: 50%;
-  border: 1px solid #002aff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5rem auto;
-  animation: slowRotate 120s linear infinite;
-  overflow: hidden;
-}
-
-.central-planet {
-  width: 100px;
-  height: 100px;
-  background-color: #051a85;
-  opacity: 0.2;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-20%, -90%);
-  box-shadow: 0 0 100px #39421c;
-}
-
 /* ------------------ SVG Curved Text ------------------ */
 .curved-links {
   position: absolute;
-  top: 50%;
+  top: 40%;
+  width: 800px;
+  height: 800px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
   z-index: 2;
   overflow: visible;
 }
@@ -116,16 +130,9 @@ main {
   color: inherit;
 }
 
-.circle-link {
-  text-decoration: none;
-  color: #001eff;
-  font-size: 0px;
-  font-family: monospace;
-  font-style: oblique;
-  -webkit-text-stroke: 0.1px #000;
-  white-space: nowrap;
-  transform-origin: 0% 0%;
-  transition: color 1s;
+.curved-links text {
+  animation: spinText 60s linear infinite;
+  transform-origin: 400px 400px; /* Center of the SVG */
 }
 
 .circle-link:hover {
@@ -137,30 +144,47 @@ main {
   width: 100%;
 }
 
+.central-planet {
+  display: none;
+}
+
 /* ------------------ Animations ------------------ */
-@keyframes pulseGlow {
+@keyframes pulse {
   0% {
-    background-color: rgba(133, 122, 24, 0.05);
-    box-shadow: 0 0 20px rgba(80, 13, 65, 0.1);
+    transform: scale(1);
+    opacity: 1;
   }
   50% {
-    background-color: rgba(71, 42, 14, 0.1);
-    box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
+    transform: scale(1.2);
+    opacity: 0.8;
   }
   100% {
-    background-color: rgba(227, 173, 38, 0.05);
-    box-shadow: 0 0 800px rgba(0, 0, 255, 0.1);
+    transform: scale(1);
+    opacity: 1;
   }
+}
+
+.pulse-text {
+  animation: pulse 3s infinite ease-in-out;
+  transform-origin: center;
 }
 
 @keyframes slowRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spinText {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ------------------ Site Header ------------------ */

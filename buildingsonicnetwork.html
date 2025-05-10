@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Eliot| When Satellites Murmur</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="site-header">
+      <a href="index.html">Eliot Lambert / When Satellites Murmur</a>
+    </div>
+    <!-- navigation menu -->
+    <nav></nav>
+
+    <!-- main content -->
+    <main>
+      <!-- 1. give your project a title -->
+      <h1>Process: Part Five - Building</h1>
+
+      <p>
+        Using CubicSDR and Max MSP - a visual programming software for
+        electronic composition - I created a sonic network between my theremin
+        and SDR antenna. The Moog theremini can be plugged into Max MSP and used
+        as a midi controller - its pitch and volume output converted into midi
+        notes. The player can modulate sound through their hand movement, their
+        body becoming an instrument. This allows for intricate modulation, due
+        to the sensitivity of the theremin to shifting parameters.
+      </p>
+      <br />
+
+      <p>
+        The challenging part was routing the audio from CubicSDR into Max MSP.
+        It seems that only one person on the internet - Tom Zicarelli (thank you
+        Tom) - had shared documentation on integrating CubicSDR into Max MSP,
+        and although the instructions were clear, my laptop struggled with a
+        multitude of technical issues in syncing up the softwares. The routing
+        at its simplest was using an internal audio system (BlackHole) to route
+        the audio output from CubicSDR into the audio input in Max MSP. I was
+        able to do this quite easily, but the audio input was a singular channel
+        of sound, so I couldn’t modulate the frequency or the bandwidth from Max
+        MSP, which was my intention.
+      </p>
+
+      <br />
+
+      <div class="fullwidth">
+        <figure>
+          <img
+            src="max setup exp.png"
+            alt="theremin1"
+            class="responsive-image"
+          />
+          <figcaption>
+            Theremin connected to Cubic SDR and Max MSP. Source: Eliot Lambert,
+            2025.
+          </figcaption>
+        </figure>
+      </div>
+
+      <br />
+
+      <p>
+        I wanted to access Tom’s max patch, but couldn’t do so until - at my
+        wits’ end - I upgraded my laptop - and could finally access the patch.
+      </p>
+      <br />
+
+      <div class="fullwidth">
+        <figure>
+          <img
+            src="max screenshot.jpg"
+            alt="theremin1"
+            class="responsive-image"
+          />
+          <figcaption>
+            Midi controller connected to video and CubicSDR input. Source: Eliot
+            Lambert, 2025.
+          </figcaption>
+        </figure>
+      </div>
+
+      <br />
+
+      <p>
+        Here is the patch with two midi channels connected and a video thats
+        frame count is controlled by the midi, so that the sequencing of the
+        video depends on the midi note of the pitch antenna.
+      </p>
+
+      <p>
+        This way, the video and radio are modulated by the same controller - the
+        theremin. The video’s pacing becomes much more choppy and glitchy as if
+        its signal is being interfered with. The video is scrubbed frame by
+        frame in the same way that an audio file can be processed by granular
+        synthesis - which segments each grain of an audio file to allow for
+        time-stretching, pitch-bending, and polyvocality. A fabulous example of
+        this technique is ‘Modell 5’, an audiovisual performance and
+        installation by artist duo Granular Synthesis, who apply the technique
+        onto video frames of a performer’s face. The effect is haunting - the
+        subject matter descends from familiar to demonic as her head shaking
+        becomes more intense.
+      </p>
+
+      <div class="fullwidth">
+        <figure>
+          <img src="fft.png" alt="theremin1" class="responsive-image" />
+          <figcaption>
+            Still from demo of theremin midi controlling SDR and video. Bottom
+            section of the screen is an FFT visualization that modulates audio
+            frequency via drawing on graph. I intentionally tried to draw a
+            flock of birds so that the effect looks like a hand drawn animation.
+            Source: Eliot Lambert, 2025.
+          </figcaption>
+        </figure>
+      </div>
+
+      <br />
+
+      <p>
+        The trick with granular synthesis, as well as using a theremin midi
+        controller, is to modulate between parameters very gradually, in order
+        to produce the most intricate and varied sound. If the pitch or gain is
+        too high, then the sonic modulation is drowned out.
+      </p>
+
+      <br />
+
+      <p>
+        The challenge with incorporating real-time NOAA satellite signals into
+        this network via CubicSDR, is that they only visibly pass once every
+        evening, and sometimes are not visible enough to be detected. This means
+        that routing their signals into Max MSP is very time constrained. I had
+        to use prerecordings of the signals in the soundscape when the signals
+        weren’t available. As reflected on a few times in this paper, the raw
+        sound of the signal is not particularly interesting - it is the symbolic
+        act of detecting the signal that makes the sound profound. Whether the
+        signal is live or recorded is less important for the quality of sound,
+        although the live channeling of it into Max MSP definitely makes the
+        sonic network more dynamic. In future iterations, I want to find
+        alternative and more frequent signals to connect to, which will be more
+        than desirable but necessary when NOAA satellites become defunct and
+        unreachable. I want to connect to Starlink satellites, but have so far
+        been unable to find out which frequency band to connect to, as Starlink
+        data is not open source (surprise, surprise). Now that I have learned
+        about the myriad of signals that can be picked up from the cosmic
+        soundscape - both natural and artificial - I will deepen my practice as
+        a radio amateur.
+      </p>
+      <br />
+      <p>
+        Returning to the idea of electronic murmuration - explored in a previous
+        Touch Designer experiment - I want to bring the voice of the bird more
+        intentionally into this electromagnetic network. I am curious as to
+        whether the bird’s channel will interfere with the network, or exist in
+        dialogue with it? Does electronic murmuration sound like cacophony or a
+        polyphonic chorus? I’ve realized that the birds have become less central
+        to this network than their electronic counterparts. I got immersed in
+        the world of radio communication, and as prophesied by Ted Chiang’s
+        parrot, concentrated more on the celestial unknown than the familiar
+        nonhuman. In future iterations of this project, I would like to focus
+        more deeply on the question of whether birds could signal jam the radio,
+        disrupting the incessant stream of information intended for human
+        connectivity? What if birds and satellites could communicate with each
+        other in their own nonhuman channel? How can birds reclaim the lost
+        biophony of their natural soundscape? This of course take years of
+        listening, and I have only just begun.
+      </p>
+
+      <br />
+    </main>
+  </body>
+</html>
