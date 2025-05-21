@@ -1,6 +1,7 @@
-fetch("nav.html")
-  .then((response) => response.text())
-  .then((data) => {
-    const navElement = document.querySelector("nav");
-    if (navElement) navElement.innerHTML = data;
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("nav.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+});
