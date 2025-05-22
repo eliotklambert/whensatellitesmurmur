@@ -1,7 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   fetch("nav.html")
-    .then((response) => response.text())
+    .then((res) => res.text())
     .then((data) => {
-      document.getElementById("nav.html").innerHTML = data;
-    });
+      document.getElementById("main-nav").innerHTML = data;
+    })
+    .catch((err) => console.error("Failed to load nav:", err));
 });
