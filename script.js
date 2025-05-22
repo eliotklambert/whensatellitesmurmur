@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("nav.html")
+  fetch("/whensatellitesmurmur/nav.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("main-nav").innerHTML = data;
