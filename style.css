@@ -3,10 +3,15 @@ html,
 body {
   height: 100%;
   background-color: #ffffff;
-  color: #000000;
+  color: hsl(0, 0%, 0%);
   font-family: monospace;
   font-style: normal;
   display: flex;
+}
+
+.outer-text {
+  fill: #0008ff;
+  font-size: 30px;
 }
 
 figure {
@@ -53,33 +58,46 @@ figcaption {
 }
 
 .landing-video {
-  opacity: 0.9; /* Value from 0 (fully transparent) to 1 (fully opaque) */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.4; /* 👈 Adjust this value between 0 (fully transparent) and 1 (fully opaque) */
 }
 
 .title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-h1 {
-  font-size: 2.5rem;
+a {
+  font-size: 1.2rem;
   color: rgb(17, 0, 255);
   font-weight: 400;
-  -webkit-text-stroke: 2px #2b00ff;
+  -webkit-text-stroke: 1px #2b00ff;
 }
 
-h1 a {
-  text-decoration: none;
-  color: inherit;
+h1 {
+  color: rgb(17, 0, 255); /* same blue as h2 */
+  font-size: 2rem; /* match h2 font size */
+  font-weight: 200; /* match h2 font weight */
+  font-style: italic; /* match h2 font style */
+  -webkit-text-stroke: 1px #2b00ff; /* same stroke as h2 */
+  text-decoration: none; /* keep existing */
 }
 
 h2,
 nav a {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 200;
   color: rgb(17, 0, 255);
   -webkit-text-stroke: 1px #2b00ff;
   font-style: italic;
   line-height: 2;
+  padding-left: 50px; /* or margin-left */
+  padding-right: 10px; /* optional, if you want spacing on both sides */
 }
 
 p {
@@ -89,9 +107,10 @@ p {
 
 nav {
   color: #37ef37;
-  width: 25%;
-  margin-left: 10%;
-  padding: 0;
+  width: 45%;
+  font-size: 30px;
+  margin-left: 50%;
+  padding: 20;
 }
 
 /* ------------------ Layout Containers ------------------ */
