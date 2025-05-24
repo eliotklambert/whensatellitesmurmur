@@ -75,7 +75,7 @@
     </video>
 
     <audio id="backgroundAudio" loop>
-      <source src="TAM.mp3" type="audio/mpeg" />
+      <source src="birdsfft.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
 
@@ -234,12 +234,13 @@
 
       const textPaths = document.querySelectorAll("textPath");
 
-      // Skip the first textPath (path0), and start assigning links from path1
       textPaths.forEach((tp, i) => {
-        if (i === 0) return; // Don't add link to the first textPath
+        const href = tp.getAttribute("href");
+        if (href === "#path0" || href === "#path14") return; // Skip links for path0 and path14
+
         tp.style.pointerEvents = "auto";
         tp.addEventListener("click", () => {
-          window.location.href = links[i - 1];
+          window.location.href = links[i - 1]; // Adjust index based on how your links array is set up
         });
       });
     </script>
