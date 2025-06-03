@@ -222,8 +222,9 @@ main {
 }
 
 .site-header a {
-  color: #001eff;
+  color: #ff4d00;
   text-decoration: none;
+  -webkit-text-stroke: 0 !important; /* Remove blue outline */
 }
 
 .site-header a:hover {
@@ -263,4 +264,34 @@ main {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #555;
+}
+
+.nav-buttons {
+  position: fixed;
+  bottom: 1em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1 1em;
+  pointer-events: none; /* prevents blocking elements behind */
+  z-index: 1000;
+}
+
+.nav-buttons a {
+  pointer-events: auto; /* restore interactivity for buttons */
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #ff0000;
+  padding: 1em 2em;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-buttons a:hover {
+  background-color: #eee;
+}
+.orbit-link {
+  color: rgb(255, 102, 0) !important;
+  -webkit-text-stroke: 0 !important; /* Remove the blue stroke */
 }
